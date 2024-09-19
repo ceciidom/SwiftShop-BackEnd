@@ -15,14 +15,9 @@ const fs = require("fs");
 const path = require("path");
 let ProductsService = class ProductsService {
     constructor() {
-      const filePath = path.join(__dirname, "../mock-data/products.json");
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      this.products = JSON.parse(fileContents);
-      // Initialize the ID counter to the highest existing ID or 1 if none exists
-      this.nextId =
-        this.products.length > 0
-          ? Math.max(...this.products.map((p) => p.id)) + 1
-          : 1;
+        const filePath = path.join(__dirname, '../mock-data/products.json');
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        this.products = JSON.parse(fileContents);
     }
     findAll() {
         return this.products;
@@ -31,14 +26,13 @@ let ProductsService = class ProductsService {
         return this.products.find(product => product.id === id);
     }
     create(product) {
-      product.id = this.nextId++; // Assign an increment ID
-      this.products.push(product);
-      return product;
+        this.products.push(product);
+        return product;
     }
     update(id, product) {
         const index = this.products.findIndex(p => p.id === id);
         if (index !== -1) {
-          this.products[index] = product;
+            this.products[index] = product;
         }
         return product;
     }

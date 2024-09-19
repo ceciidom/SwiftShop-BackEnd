@@ -5,14 +5,12 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-
-    //conf de CORS
     app.enableCors({
-      origin: "http://localhost:5173", // Asegúrate de incluir el puerto correcto para tu front-end
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-      allowedHeaders: "Content-Type, Accept",
-      credentials: true,
-    });
+        origin: "http://localhost:5173",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        allowedHeaders: "Content-Type, Accept",
+        credentials: true,
+    })
 
     const config = new swagger_1.DocumentBuilder()
         .setTitle('TFM Mock API')
