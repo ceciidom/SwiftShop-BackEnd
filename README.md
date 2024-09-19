@@ -1,3 +1,11 @@
+# Ejecutar la app
+```bash
+npm install --force
+npm install -g @nestjs/cli
+npm init
+npm start
+# (Se ejecuta en http://localhost:3000/api/)
+```
 # Documentación de la API REST
 
 ## Endpoints
